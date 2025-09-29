@@ -17,7 +17,7 @@ spec:
       securityContext: 
         runAsNonRoot: false
         runAsUser: 0
-      run: |
+      script: |
         #!/usr/bin/env sh
         set -eu
         echo "Removing all files from ${WORKSPACE_SOURCE_PATH} ..."
@@ -53,7 +53,7 @@ spec:
     - name: nosetests
       image: python:3.9-slim
       workingDir: $(workspaces.source.path)
-      run: |
+      script: |
         #!/bin/bash
         set -e
         python -m pip install --upgrade pip wheel
